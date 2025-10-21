@@ -32,26 +32,71 @@ export default function LandingTop(){
         </div>
       </section>
 
+      {/* 三角の扉 */}
       <section id="doors" className="border-t border-neutral-800 bg-neutral-950/60">
         <div className="container py-12 grid md:grid-cols-3 gap-6">
-          <a href="https://www.notion.so/28e6197f1e5580aeba43e81de422ca9d" target="_blank" className="card hover:bg-neutral-900">
+          {/* 1. 世界観に触れる（聴く・観る） */}
+          <div className="card hover:bg-neutral-900">
             <h3 className="font-semibold">1. 世界観に触れる（聴く・観る）</h3>
-            <p className="mt-2 text-sm text-neutral-300">音楽（世界185カ国以上で配信中）</p>
-            <p className="text-sm text-neutral-300">メタバース美術館（Healing Ukiyo-e 3D）</p>
-          </a>
-          <a href="https://www.notion.so/28e6197f1e5580aeba43e81de422ca9d" target="_blank" className="card hover:bg-neutral-900">
+            <p className="mt-2 text-sm">
+              <a
+                href="https://acescare.fanlink.tv/hidekitamae?fbclid=IwY2xjawNkTeNleHRuA2FlbQIxMABicmlkETE5SkQzWFFsSlY3cmJBT2JtAR73MgN_hSIXD7PvmR1Qz2tpxtE0ZUadVyxkgq93BEa0dZYyabf3YiDsXlWUDA_aem_3r5exxMZTxS5yaU75trtrA"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:opacity-80"
+              >
+                音楽（世界185カ国以上で配信中）
+              </a>
+            </p>
+            <p className="text-sm">
+              <a
+                href="https://oncyber.io/spaces/0DCUetEBicRPi0fem1WM?coords=-2.07x2.85x5.14x1.58"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:opacity-80"
+              >
+                メタバース美術館（Healing Ukiyo-e 3D）
+              </a>
+            </p>
+          </div>
+
+          {/* 2. プロジェクトに参加する（繋がる） */}
+          <div className="card hover:bg-neutral-900">
             <h3 className="font-semibold">2. プロジェクトに参加する（繋がる）</h3>
-            <p className="mt-2 text-sm text-neutral-300">プロジェクト情報（ACEs Care HUB JAPANの活動）</p>
-            <p className="text-sm text-neutral-300">β参加フォーム（共創の第一歩）</p>
-          </a>
-          <a href="https://www.notion.so/28e6197f1e5580aeba43e81de422ca9d" target="_blank" className="card hover:bg-neutral-900">
+            <p className="mt-2 text-sm">
+              <a
+                href="https://aces-care-hub-site-ru8w.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:opacity-80"
+              >
+                プロジェクト情報（ACEs Care HUB JAPANの活動）
+              </a>
+            </p>
+            <p className="text-sm text-neutral-300">
+              β参加フォーム（共創の第一歩）
+            </p>
+          </div>
+
+          {/* 3. オープンな議論の場 */}
+          <div className="card hover:bg-neutral-900">
             <h3 className="font-semibold">3. オープンな議論の場</h3>
-            <p className="mt-2 text-sm text-neutral-300">Web3公民館で共同議論に参加</p>
+            <p className="mt-2 text-sm">
+              <a
+                href="https://discord.gg/PBwPNBfE"
+                target="_blank"
+                rel="noreferrer"
+                className="underline hover:opacity-80"
+              >
+                Web3公民館で共同議論に参加
+              </a>
+            </p>
             <p className="text-sm text-neutral-300">月次レポート（構築中・随時更新）</p>
-          </a>
+          </div>
         </div>
       </section>
 
+      {/* ティーザー（Day1） */}
       <section id="teaser" className="border-t border-neutral-800">
         <div className="container py-12">
           <h2 className="text-2xl md:text-3xl font-semibold">ティーザー動画（Day1）</h2>
@@ -70,7 +115,14 @@ export default function LandingTop(){
           <p>© 2025 ACEs Care HUB JAPAN / Re-Verse Network</p>
           <div className="flex gap-4">
             <a href="https://tally.so/r/wM9JVY" className="hover:opacity-80">β参加フォーム</a>
-            <a href="#" className="hover:opacity-80">特定商取引法</a>
+            <a
+              href="https://aces-care-hub-site-ru8w.vercel.app/legal/tokushoho"
+              target="_blank"
+              rel="noreferrer"
+              className="hover:opacity-80"
+            >
+              特定商取引法
+            </a>
           </div>
         </div>
       </footer>
