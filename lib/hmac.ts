@@ -4,12 +4,11 @@
 const te = new TextEncoder();
 
 // ===== Base64URL helpers =====
-function toB64Url(u8: Uint8Array): string {
+function b64urlEncode(u8: Uint8Array): string {
   let b64: string;
   if (typeof Buffer !== 'undefined') {
     b64 = Buffer.from(u8).toString('base64');
   } else {
-    // Browser/Edge 環境
     let bin = '';
     for (let i = 0; i < u8.length; i++) bin += String.fromCharCode(u8[i]);
     b64 = btoa(bin);
@@ -17,8 +16,8 @@ function toB64Url(u8: Uint8Array): string {
   return b64.replace(/=/g, '').replace(/\+/g, '-').replace(/\//g, '_');
 }
 
-function fromB64Url(b64url: string): Uint8Array {
-  const b64 = b64url.replace(/-/g, '+').replace(/_/g, '/');
+function b64urlDecode(s: string): Uint8Array {
+  const b64 = s.replace(/-/g, '+').replace(/_/g, '/');
   const pad = '='.repeat((4 - (b64.length % 4)) % 4);
   const b64p = b64 + pad;
   if (typeof Buffer !== 'undefined') {
@@ -45,13 +44,16 @@ async function hmacSHA256(secret: string, data: string): Promise<Uint8Array> {
 }
 
 // ===== Sign / Verify =====
-export async function signToken(payload: Record<string, any>, secret: string): Promise<string> {
+export async function signToken(
+  payload: Record<string, any>,
+  secret: string
+): Promise<string> {
   const header = { alg: 'HS256', typ: 'JWT' };
-  const h = toB64Url(te.encode(JSON.stringify(header)));
-  const p = toB64Url(te.encode(JSON.stringify(payload)));
+  const h = b64urlEncode(te.encode(JSON.stringify(header)));
+  const p = b64urlEncode(te.encode(JSON.stringify(payload)));
   const data = `${h}.${p}`;
   const sig = await hmacSHA256(secret, data);
-  return `${data}.${toB64Url(sig)}`;
+  return `${data}.${b64urlEncode(sig)}`;
 }
 
 export async function verifyToken(token: string, secret: string): Promise<boolean> {
@@ -62,22 +64,22 @@ export async function verifyToken(token: string, secret: string): Promise<boolea
     const [h, p, s] = parts;
     const data = `${h}.${p}`;
 
-    const expected = await hmacSHA256(secret, data); // Uint8Array
-    const actual = fromB64Url(s);
+    const expected = await hmacSHA256(secret, data);
+    const actual = b64urlDecode(s);
 
     if (expected.length !== actual.length) return false;
-
-    // 安全な比較（型エラーの原因だった &= を廃止）
-    let ok = true;
     for (let i = 0; i < expected.length; i++) {
-      if (expected[i] !== actual[i]) { ok = false; break; }
+      if (expected[i] !== actual[i]) return false;
     }
-    if (!ok) return false;
 
-    const payloadBytes = fromB64Url(p);
-    const payload = JSON.parse(new TextDecoder().decode(payloadBytes));
+    const payloadBytes = b64urlDecode(p);
+    const payloadStr =
+      typeof TextDecoder !== 'undefined'
+        ? new TextDecoder().decode(payloadBytes)
+        : (typeof Buffer !== 'undefined' ? Buffer.from(payloadBytes).toString('utf8') : '');
+    const payload = JSON.parse(payloadStr || '{}');
+
     if (payload.exp && Math.floor(Date.now() / 1000) > payload.exp) return false;
-
     return true;
   } catch {
     return false;
