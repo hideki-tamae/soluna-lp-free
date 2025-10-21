@@ -106,7 +106,7 @@ export default function LandingTop(){
               お使いのブラウザは動画再生に対応していません。
             </video>
           </div>
-          <p className="text-xs text-neutral-500 mt-2">※ Facebookにも同じ動画を投稿し、CTAでこのページに誘導してください。</p>
+      
         </div>
       </section>
 
