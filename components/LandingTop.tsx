@@ -10,7 +10,7 @@ export default function LandingTop() {
         <div className="container py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2 font-semibold">
             <Image
-              src="/brand/acescare-logo.png"
+              src="/logo.png"   
               alt="ACEs Care HUB JAPAN ロゴ"
               width={28}
               height={28}
