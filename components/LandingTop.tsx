@@ -1,13 +1,24 @@
 'use client';
 import Link from "next/link";
+import Image from "next/image";
 
-export default function LandingTop(){
+export default function LandingTop() {
   const isOpen = process.env.NEXT_PUBLIC_CLAIM_OPEN === '1';
   return (
     <main>
       <header className="border-b border-neutral-800">
         <div className="container py-4 flex items-center justify-between">
-          <Link href="/" className="font-semibold">ACEs Care HUB JAPAN</Link>
+          <Link href="/" className="flex items-center gap-2 font-semibold">
+            <Image
+              src="/brand/acescare-logo.png"
+              alt="ACEs Care HUB JAPAN ロゴ"
+              width={28}
+              height={28}
+              className="rounded-full ring-1 ring-white/10"
+              sizes="28px"
+            />
+            <span>ACEs Care HUB JAPAN</span>
+          </Link>
           <nav className="hidden md:flex gap-6 text-sm">
             <Link href="/#doors" className="hover:opacity-80">参画の扉</Link>
             <Link href="/claim" className="hover:opacity-80">読了者解錠</Link>
@@ -21,7 +32,7 @@ export default function LandingTop(){
           Re-Verse Civilization / <span className="whitespace-nowrap">SOLUNAケア・トークン</span>
         </h1>
         <p className="mt-3 text-sm inline-flex items-center gap-2 rounded-full border border-neutral-800 px-3 py-1 bg-neutral-900/60">
-          <span className="h-2 w-2 rounded-full bg-emerald-400" /> ティザー公開中（Claim {isOpen?'OPEN':'CLOSED'}）
+          <span className="h-2 w-2 rounded-full bg-emerald-400" /> ティザー公開中（Claim {isOpen ? 'OPEN' : 'CLOSED'}）
         </p>
         <p className="mt-4 text-neutral-300 md:text-lg max-w-2xl">
           「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・美術館・コミュニティを横断したケア資本主義の土台をつくります。
@@ -106,7 +117,6 @@ export default function LandingTop(){
               お使いのブラウザは動画再生に対応していません。
             </video>
           </div>
-      
         </div>
       </section>
 
@@ -129,3 +139,4 @@ export default function LandingTop(){
     </main>
   );
 }
+
