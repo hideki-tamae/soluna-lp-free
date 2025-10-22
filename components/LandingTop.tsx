@@ -1,32 +1,29 @@
-// コンポーネント/ランディングトップ.tsx
-// ★このファイル1つを差し替えれば、動画埋め込み + Tallyリンク差し替えが完了します。
+// components/ランディングトップ.tsx
+// 動画: public/Katana_Video_Generation.mp4 を再生。Tallyリンク済み。
 
 type Provider = "youtube" | "vimeo" | "mp4";
 
 type Video = {
-  day: number;   // 新しい数字ほど新しい日
-  title: string; // 表示名
-  url: string;   // 埋め込みURL or /public 配下の相対パス
+  day: number;   // larger = newer
+  title: string; // display label
+  url: string;   // embed URL or /public path
   provider?: Provider;
 };
 
-// ---- ここだけ更新すれば毎日積み上がります ----
 const videos: Video[] = [
   {
     day: 2,
     title: "DAY2",
-    url: "/videos/Katana_Video_Generation.mp4", // ← ①でアップした実ファイル
+    url: "/Katana_Video_Generation.mp4", // ← 今アップした実パスに合わせた
     provider: "mp4",
   },
   {
     day: 1,
     title: "DAY1",
-    // 昨日の動画。YouTubeなら /embed/ 形式を推奨
-    url: "https://www.youtube.com/embed/VIDEO_ID",
+    url: "https://www.youtube.com/embed/VIDEO_ID", //（任意）昨日の実URLに差し替えてOK
     provider: "youtube",
   },
 ];
-// ---- ここまで ----
 
 function VideoEmbed({ v }: { v: Video }) {
   if (v.provider === "mp4") {
@@ -54,9 +51,7 @@ function VideoEmbed({ v }: { v: Video }) {
 export default function ランディングトップ() {
   return (
     <main className="min-h-dvh">
-      {/* ===== 既存のヒーロー／説明ブロックがある場合は、このコメントの上に貼り戻してください ===== */}
-
-      {/* CTA：β参加フォーム（共創の第一歩） → Tallyに差し替え済み */}
+      {/* CTA: β参加フォーム（共創の第一歩） → Tally */}
       <section className="mx-auto max-w-4xl px-4 pt-8">
         <a
           href="https://tally.so/r/wM9JVY"
@@ -68,7 +63,7 @@ export default function ランディングトップ() {
         </a>
       </section>
 
-      {/* 動画の積み上げ表示（新しいDAYが上に来ます） */}
+      {/* Videos (newest on top) */}
       <section className="mx-auto max-w-4xl px-4 py-10 space-y-8">
         <h2 className="text-2xl md:text-3xl font-bold">Daily Videos</h2>
         <div className="space-y-10">
@@ -77,15 +72,13 @@ export default function ランディングトップ() {
             .map((v) => (
               <article key={v.day} className="space-y-3">
                 <h3 className="text-xl font-semibold">
-                  {v.title}（DAY{v.day}）
+                  {v.title} (DAY{v.day})
                 </h3>
                 <VideoEmbed v={v} />
               </article>
             ))}
         </div>
       </section>
-
-      {/* ===== フッター等があればこの下に ===== */}
     </main>
   );
 }
