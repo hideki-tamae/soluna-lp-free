@@ -60,7 +60,7 @@ export default function ランディングトップ() {
       rel="noopener noreferrer"
       className="block underline opacity-90 hover:opacity-100"
     >
-      ACEs Care HUB JAPANの活動（プロジェクト）
+      ACEs Care HUB JAPANの活動
     </a>
 
     <a
