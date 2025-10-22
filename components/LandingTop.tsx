@@ -2,7 +2,7 @@
 <div className="rounded-3xl border/30 border px-6 py-5">
   <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
   <div className="space-y-1 text-sm">
-    {/* プロジェクト情報 → いただいたURLに変更 */}
+    {/https://aces-care-hub-site-ru8w.vercel.app/}
     <a
       className="underline opacity-90 hover:opacity-100"
       href="https://aces-care-hub-site-ru8w.vercel.app/"
