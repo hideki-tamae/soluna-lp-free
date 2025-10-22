@@ -89,7 +89,7 @@ export default function ランディングトップ() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                リバース・ラジオ（Spotify・準備中）
+                リバース・ラジオ（準備中）
               </a>
               <br />
               <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
