@@ -129,6 +129,9 @@ export default function ランディングトップ() {
               <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
                 Web3公民館で共同議論に参加
               </a>
+  　　　　　　　　<a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                リバース・ラジオ（準備中・Spotify）
+              </a>
               <br />
               <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
                 月次レポート（構築中・随時更新）
