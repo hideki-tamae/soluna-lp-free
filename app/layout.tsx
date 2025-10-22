@@ -45,7 +45,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               >
                 β参加フォーム
               </a>
-              <a href="#" className="opacity-80 hover:opacity-100">特定商取引法</a>
+              <a
+  href="https://aces-care-hub-site-ru8w.vercel.app/legal/tokushoho"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="opacity-80 hover:opacity-100"
+>
+  特定商取引法
+</a>
+
             </div>
           </div>
         </footer>
