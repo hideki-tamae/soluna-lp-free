@@ -12,13 +12,13 @@ const videos: Video[] = [
   {
     day: 2,
     title: "DAY2",
-    url: "DAY2_VIDEO_URL_HERE", // ← 今日の動画URLを貼る
+    url: "Katana_Video_Generation.mp4", // ← 今日の動画URLを貼る
     provider: "youtube",         // youtube / vimeo / mp4 のいずれか
   },
   {
     day: 1,
     title: "DAY1",
-    url: "DAY1_VIDEO_URL_HERE", // ← すでに埋め込んだDAY1のURL
+    url: "Cinematic_Sunrise_Video_Generation.mp4", // ← すでに埋め込んだDAY1のURL
     provider: "youtube",
   },
 ];
