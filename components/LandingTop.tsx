@@ -62,3 +62,57 @@ export default function ランディングトップ() {
             <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
             <div className="space-y-1 text-sm">
               <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                プロジェクト情報（ACEs Care HUB JAPANの活動）
+              </a>
+              <br />
+              <a
+                className="underline opacity-90 hover:opacity-100"
+                href="https://tally.so/r/wM9JVY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                β参加フォーム（共創の第一歩）
+              </a>
+            </div>
+          </div>
+
+          {/* 3. 議論の場（間にRADIO=準備中を挿入） */}
+          <div className="rounded-3xl border/30 border px-6 py-5">
+            <h3 className="font-semibold mb-2">3. オープンな議論の場</h3>
+            <div className="space-y-1 text-sm">
+              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                Web3公民館で共同議論に参加
+              </a>
+              <br />
+              {/* ← ここを新規で挿入 */}
+              <a
+                className="underline opacity-90 hover:opacity-100"
+                href="https://open.spotify.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                リバース・ラジオ（Spotify・準備中）
+              </a>
+              <br />
+              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                月次レポート（構築中・随時更新）
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ティーザー動画（Day2）に差し替え ===== */}
+      <section className="mx-auto max-w-6xl px-4 py-10 space-y-6">
+        <h2 className="text-2xl md:text-3xl font-bold">ティーザー動画（Day2）</h2>
+        <video
+          controls
+          src="/Katana_Video_Generation.mp4"
+          className="w-full max-w-5xl aspect-video rounded-2xl border"
+          preload="metadata"
+          playsInline
+        />
+      </section>
+    </main>
+  );
+}
