@@ -70,7 +70,7 @@ export default function Page() {
           <div className="rounded-3xl border/30 border px-6 py-5">
             <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
             <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
-              プロジェクト情報（ACEs Care HUB JAPANの活動）
+              ACEs Care HUB JAPANの活動
             </a>
             <br />
             <a
@@ -95,7 +95,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              リバース・ラジオ（Spotify・準備中）
+              リバース・ラジオ（随時更新）
             </a>
             <br />
             <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
