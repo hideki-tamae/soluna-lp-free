@@ -107,4 +107,69 @@ export default function ランディングトップ() {
           <div className="rounded-3xl border/30 border px-5 py-4">
             <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
             <div className="space-y-1 text-sm">
-              <a className="underline opacity-90 hover:opacity-100" href="#" target="_bl_
+              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                プロジェクト情報（ACEs Care HUB JAPANの活動）
+              </a>
+              <br />
+              <a
+                className="underline opacity-90 hover:opacity-100"
+                href="https://tally.so/r/wM9JVY"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                β参加フォーム（共創の第一歩）
+              </a>
+            </div>
+          </div>
+
+          {/* 3 */}
+          <div className="rounded-3xl border/30 border px-5 py-4">
+            <h3 className="font-semibold mb-2">3. オープンな議論の場</h3>
+            <div className="space-y-1 text-sm">
+              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                Web3公民館で共同議論に参加
+              </a>
+              <br />
+              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
+                月次レポート（構築中・随時更新）
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* NEW: RADIOリンク（準備中） */}
+        <div className="mt-4 rounded-3xl border/30 border px-5 py-4">
+          <h3 className="font-semibold mb-2">Re:Verse RADIO（準備中）</h3>
+          <p className="text-sm opacity-80">
+            本人の解説オーディオを Spotify で配信予定。準備が整い次第ここに掲載します。
+          </p>
+          <div className="mt-2">
+            <a
+              href="https://open.spotify.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium border hover:opacity-90 transition"
+            >
+              Spotify（仮リンク）
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== ページ最下部：常に「最新ティーザー」 ===== */}
+      {latest && (
+        <section id="latest-teaser" className="mx-auto max-w-6xl px-4 py-12 space-y-6">
+          <h2 className="text-2xl md:text-3xl font-bold">
+            最新ティーザー（{latest.title} / DAY{latest.day}）
+          </h2>
+          <Player url={latest.url} provider={latest.provider} />
+        </section>
+      )}
+
+      {/* ===== Footer（必要に応じて差し替え） ===== */}
+      <footer className="mx-auto max-w-6xl px-4 pb-12 text-sm opacity-70">
+        © 2025 ACEs Care HUB JAPAN / Re-Verse Network
+      </footer>
+    </main>
+  );
+}
