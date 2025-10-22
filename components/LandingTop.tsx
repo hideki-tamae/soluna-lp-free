@@ -52,27 +52,28 @@ export default function ランディングトップ() {
 
           {/* 2. 参加する（2行まとめてリンク化 & βフォームはTally） */}
           <div className="rounded-3xl border/30 border px-6 py-5">
-            <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
-            <div className="space-y-2 text-sm">
-              <a
-                href="https://aces-care-hub-site-ru8w.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block underline opacity-90 hover:opacity-100"
-              >
-                <span className="block pl-5 opacity-80">ACEs Care HUB JAPANの活動</span>
-              </a>
+  <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
+  <div className="space-y-2 text-sm">
+    <a
+      href="https://aces-care-hub-site-ru8w.vercel.app/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block underline opacity-90 hover:opacity-100"
+    >
+      ACEs Care HUB JAPANの活動（プロジェクト）
+    </a>
 
-              <a
-                className="underline opacity-90 hover:opacity-100 block"
-                href="https://tally.so/r/wM9JVY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                β参加フォーム（共創の第一歩）
-              </a>
-            </div>
-          </div>
+    <a
+      href="https://tally.so/r/wM9JVY"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block underline opacity-90 hover:opacity-100"
+    >
+      β参加フォーム（共創の第一歩）
+    </a>
+  </div>
+</div>
+
 
           {/* 3. 議論の場（Spotify を間に挿入） */}
           <div className="rounded-3xl border/30 border px-6 py-5">
