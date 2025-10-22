@@ -1,65 +1,19 @@
 // components/LandingTop.tsx
-// ホーム本体：ヒーロー＋3カード＋RADIO(準備中)＋最下部に「最新ティーザー」自動表示。
-// さらに /teaser ページ用にデータも “ここだけ” に集約（下の `teasers` を編集していけばOK）。
-
-type Provider = "youtube" | "vimeo" | "mp4";
-
-export type Teaser = {
-  day: number;   // larger = newer
-  title: string; // 表示名
-  url: string;   // /public パス or embed URL
-  provider: Provider;
-};
-
-// ←-------------- ここだけ直していけば毎日運用できます --------------→
-export const teasers: Teaser[] = [
-  {
-    day: 2,
-    title: "DAY2",
-    url: "/Katana_Video_Generation.mp4", // すでに public/ にある実ファイル
-    provider: "mp4",
-  },
-  {
-    day: 1,
-    title: "DAY1",
-    url: "https://www.youtube.com/embed/VIDEO_ID", // 昨日の実URLに差し替えてOK
-    provider: "youtube",
-  },
-];
-// ←------------------------------------------------------------------→
-
-function Player({ url, provider }: { url: string; provider: Provider }) {
-  if (provider === "mp4") {
-    return (
-      <video
-        controls
-        src={url}
-        className="w-full max-w-5xl aspect-video rounded-2xl border"
-        preload="metadata"
-        playsInline
-      />
-    );
-  }
-  return (
-    <iframe
-      src={url}
-      className="w-full max-w-5xl aspect-video rounded-2xl border"
-      loading="lazy"
-      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowFullScreen
-    />
-  );
-}
+// 昨日のトップ構成に準拠：ヒーロー＋3ボタン（指定差分反映）＋フッター文言は layout 側のまま。
+// 変更点：
+//  - 2の中の「β参加フォーム」を Tally へ
+//  - 3の中に「リバース・ラジオ（Spotify・準備中）」を追加（間に挿入）
+//  - 「最新ティーザーを見る」→「ティーザーの一覧を見る」へ改名（/teaser に遷移）
+//  - ティーザー動画の見出しを Day2 に、動画を /Katana_Video_Generation.mp4 に差し替え
+//  - Re:Verse RADIO の独立ボタンは削除
 
 export default function ランディングトップ() {
-  // 最新（dayの最大）を求める
-  const latest = [...teasers].sort((a, b) => b.day - a.day)[0];
-
   return (
     <main className="min-h-dvh bg-black text-white">
-      {/* ===== HERO ===== */}
+      {/* ===== HERO（ロゴは app/layout.tsx 側で表示。ここは本文） ===== */}
       <section className="mx-auto max-w-6xl px-4 pt-10 pb-8">
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight">
+        <p className="text-xs tracking-widest opacity-70">RE-VERSE NETWORK</p>
+        <h1 className="mt-2 text-3xl md:text-5xl font-extrabold tracking-tight">
           Re-Verse Civilization / SOLUNAケア・トークン
         </h1>
 
@@ -67,8 +21,8 @@ export default function ランディングトップ() {
           「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・美術館・コミュニティを横断したケア資本主義の土台をつくります。
         </p>
 
-        <div className="mt-6 flex flex-wrap gap-3">
-          {/* 要望：ボタンの文言を変更（一覧へ） */}
+        <div className="mt-6 flex flex-wrap gap-12 items-center">
+          {/* ←ボタン名を変更して /teaser に遷移 */}
           <a
             href="/teaser"
             className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium bg-white text-black hover:opacity-90 transition"
@@ -76,7 +30,7 @@ export default function ランディングトップ() {
             ティーザーの一覧を見る
           </a>
 
-          {/* 読者ページ（合言葉）など、必要なら差し替え */}
+          {/* 読者向けリンク（合言葉） ※必要に応じて差し替え */}
           <a
             href="#"
             className="inline-flex items-center justify-center rounded-xl px-5 py-3 font-medium border hover:opacity-90 transition"
@@ -86,11 +40,11 @@ export default function ランディングトップ() {
         </div>
       </section>
 
-      {/* ===== 3ボタン＋RADIO(準備中) ===== */}
-      <section className="mx-auto max-w-6xl px-4 pb-6">
-        <div className="grid md:grid-cols-3 gap-4">
-          {/* 1 */}
-          <div className="rounded-3xl border/30 border px-5 py-4">
+      {/* ===== 1/2/3 の3カード（昨日の配置） ===== */}
+      <section className="mx-auto max-w-6xl px-4">
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* 1. 世界観に触れる */}
+          <div className="rounded-3xl border/30 border px-6 py-5">
             <h3 className="font-semibold mb-2">1. 世界観に触れる（聴く・観る）</h3>
             <div className="space-y-1 text-sm">
               <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
@@ -103,76 +57,8 @@ export default function ランディングトップ() {
             </div>
           </div>
 
-          {/* 2 */}
-          <div className="rounded-3xl border/30 border px-5 py-4">
+          {/* 2. 参加する（βフォームをTallyへ） */}
+          <div className="rounded-3xl border/30 border px-6 py-5">
             <h3 className="font-semibold mb-2">2. プロジェクトに参加する（繋がる）</h3>
             <div className="space-y-1 text-sm">
               <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
-                プロジェクト情報（ACEs Care HUB JAPANの活動）
-              </a>
-              <br />
-              <a
-                className="underline opacity-90 hover:opacity-100"
-                href="https://tally.so/r/wM9JVY"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                β参加フォーム（共創の第一歩）
-              </a>
-            </div>
-          </div>
-
-          {/* 3 */}
-          <div className="rounded-3xl border/30 border px-5 py-4">
-            <h3 className="font-semibold mb-2">3. オープンな議論の場</h3>
-            <div className="space-y-1 text-sm">
-              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
-                Web3公民館で共同議論に参加
-              </a>
-  　　　　　　　　<a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
-                リバース・ラジオ（準備中・Spotify）
-              </a>
-              <br />
-              <a className="underline opacity-90 hover:opacity-100" href="#" target="_blank" rel="noopener noreferrer">
-                月次レポート（構築中・随時更新）
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* NEW: RADIOリンク（準備中） */}
-        <div className="mt-4 rounded-3xl border/30 border px-5 py-4">
-          <h3 className="font-semibold mb-2">Re:Verse RADIO（準備中）</h3>
-          <p className="text-sm opacity-80">
-            本人の解説オーディオを Spotify で配信予定。準備が整い次第ここに掲載します。
-          </p>
-          <div className="mt-2">
-            <a
-              href="https://open.spotify.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium border hover:opacity-90 transition"
-            >
-              Spotify（仮リンク）
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== ページ最下部：常に「最新ティーザー」 ===== */}
-      {latest && (
-        <section id="latest-teaser" className="mx-auto max-w-6xl px-4 py-12 space-y-6">
-          <h2 className="text-2xl md:text-3xl font-bold">
-            最新ティーザー（{latest.title} / DAY{latest.day}）
-          </h2>
-          <Player url={latest.url} provider={latest.provider} />
-        </section>
-      )}
-
-      {/* ===== Footer（必要に応じて差し替え） ===== */}
-      <footer className="mx-auto max-w-6xl px-4 pb-12 text-sm opacity-70">
-        © 2025 ACEs Care HUB JAPAN / Re-Verse Network
-      </footer>
-    </main>
-  );
-}
