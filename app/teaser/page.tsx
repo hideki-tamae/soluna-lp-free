@@ -1,6 +1,5 @@
 // app/teaser/page.tsx
 // ティーザーの一覧ページ：ヒーロー＋上部3カード（リンク統一）＋ Day3/2/1 のアーカイブ。
-// フッターとヘッダーは app/layout.tsx 側が表示されます。
 
 type Item = {
   day: number;
@@ -9,7 +8,7 @@ type Item = {
   provider: "mp4" | "youtube" | "vimeo";
 };
 
-// ▼ ここだけ追加・編集すればOK（新しいDAYを増やす時は1行足す）
+// ▼ ここだけ追加・編集すればOK
 const list: Item[] = [
   { day: 3, title: "DAY3", url: "/8s_a_dramatic_202510231252_mj6zk.mp4", provider: "mp4" },
   { day: 2, title: "DAY2", url: "/Katana_Video_Generation.mp4", provider: "mp4" },
@@ -54,7 +53,7 @@ export default function Page() {
         </p>
       </section>
 
-      {/* ホームと同じ3カード（リンクを最新仕様に統一） */}
+      {/* ホームと同じ3カード（リンク統一） */}
       <section className="mx-auto max-w-6xl px-4">
         <div className="grid md:grid-cols-3 gap-6 text-sm">
           {/* 1. 世界観に触れる（聴く・観る） */}
@@ -110,14 +109,9 @@ export default function Page() {
             >
               Web3公民館で共同議論に参加
             </a>
-            <a
-              className="block underline opacity-90 hover:opacity-100 mt-1"
-              href="https://open.spotify.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              リバース・ラジオ（Spotify・準備中）
-            </a>
+            <div className="block underline opacity-90 hover:opacity-100 mt-1">
+              リバース・ラジオ（構築中）
+            </div>
             <div className="opacity-80 mt-1">月次レポート（構築中・随時更新）</div>
           </div>
         </div>
