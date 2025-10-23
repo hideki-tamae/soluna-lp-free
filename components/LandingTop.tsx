@@ -14,7 +14,7 @@ export default function ランディングトップ() {
           Re-Verse Civilization / SOLUNAケア・トークン
         </h1>
         <p className="mt-4 max-w-3xl leading-relaxed opacity-90">
-          「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・美術館・コミュニティを横断したケア資本主義の土台をつくります。
+          「優しさが制度になる」世界へ。Proof-of-Care™で貢献を可視化し、書籍・NFT・音楽・メタバース美術館・コミュニティを横断したケア資本主義の土台をつくります。
         </p>
 
         <div className="mt-6 flex flex-wrap gap-12 items-center">
